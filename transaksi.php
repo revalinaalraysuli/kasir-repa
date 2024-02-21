@@ -5,7 +5,7 @@ include("header.php");
 if (isset($_POST['tambah'])) {
     $tanggal = $_POST['tanggal'];
     $nama = $_POST['nama'];
-    $nomeja = $_POST['no_meja'];
+    $nomeja = $_POST['nomeja'];
     $menu_jumlah = $_POST['menu'];
     $jumlah_array = $_POST['jumlah'];
     $stok = true;
@@ -29,7 +29,7 @@ if (isset($_POST['tambah'])) {
         $sql = $koneksi->query("INSERT INTO penjualan (tanggal_penjualan) VALUES ('$tanggal')");
         $id_transaksi_baru = mysqli_insert_id($koneksi);
 
-        $sql = $koneksi->query("INSERT INTO pelanggan (id_pelanggan, nama_pelanggan, no_meja) VALUES ('$id_transaksi_baru', '$nama', '$no_meja')");
+        $sql = $koneksi->query("INSERT INTO pelanggan (id_pelanggan, nama_pelanggan, no_meja) VALUES ('$id_transaksi_baru', '$nama', '$nomeja')");
 
         foreach ($menu_jumlah as $i => $item) {
             $parts = explode("|", $item);
